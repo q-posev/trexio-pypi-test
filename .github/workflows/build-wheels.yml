@@ -5,11 +5,8 @@ on:
   push:
     branches: [ master ]
 # Workflow to build and test wheels.
-# To work on the wheel building infrastructure on a fork, comment out:
 #
-# if: github.repository == 'numpy/numpy'
-#
-# in the get_commit_message job. Be sure to include [cd build] in your commit
+# in the get_commit_message job. Be sure to include [wheel build] in your commit
 # message to trigger the build. All files related to wheel building are located
 # at tools/wheels/
 name: Wheel builder
@@ -59,8 +56,7 @@ jobs:
       - name: Build wheels
         run: |
           docker pull ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64:latest
-          docker run --rm -it -e PLAT=manylinux2010_x86_64 -v `pwd`:/tmp hdf5_1_12_on_2014_x86_64 /bin/bash
-          cd tmp && ./build_manylinux_wheels.sh trexio-*.tar.gz
+          docker run --rm --env PLAT=manylinux2010_x86_64 --volume `pwd`:/tmp --workdir /tmp hdf5_1_12_on_2014_x86_64 /bin/bash build_manylinux_wheels.sh trexio-*.tar.gz
 
       - uses: actions/upload-artifact@v2
         with:
