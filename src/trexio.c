@@ -10504,6 +10504,18 @@ trexio_read_safe_rdm_1e_dn (trexio_t* const file, double* const rdm_1e_dn, const
   return trexio_read_safe_rdm_1e_dn_64(file, rdm_1e_dn, dim_out);
 }
 
+trexio_exit_code trexio_read_safe_ao_2e_int_eri(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_ao_2e_int_eri(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
+}
+
 trexio_exit_code
 trexio_read_ao_2e_int_eri(trexio_t* const file,
                          const int64_t offset_file,
@@ -10571,6 +10583,18 @@ trexio_read_ao_2e_int_eri(trexio_t* const file,
   }
 
   return rc;
+}
+
+trexio_exit_code trexio_read_safe_ao_2e_int_eri_lr(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_ao_2e_int_eri_lr(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
 }
 
 trexio_exit_code
@@ -10642,6 +10666,18 @@ trexio_read_ao_2e_int_eri_lr(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_read_safe_mo_2e_int_eri(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_mo_2e_int_eri(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
+}
+
 trexio_exit_code
 trexio_read_mo_2e_int_eri(trexio_t* const file,
                          const int64_t offset_file,
@@ -10709,6 +10745,18 @@ trexio_read_mo_2e_int_eri(trexio_t* const file,
   }
 
   return rc;
+}
+
+trexio_exit_code trexio_read_safe_mo_2e_int_eri_lr(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_mo_2e_int_eri_lr(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
 }
 
 trexio_exit_code
@@ -10780,6 +10828,18 @@ trexio_read_mo_2e_int_eri_lr(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_read_safe_rdm_2e(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_rdm_2e(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
+}
+
 trexio_exit_code
 trexio_read_rdm_2e(trexio_t* const file,
                          const int64_t offset_file,
@@ -10847,6 +10907,18 @@ trexio_read_rdm_2e(trexio_t* const file,
   }
 
   return rc;
+}
+
+trexio_exit_code trexio_read_safe_rdm_2e_upup(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_rdm_2e_upup(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
 }
 
 trexio_exit_code
@@ -10918,6 +10990,18 @@ trexio_read_rdm_2e_upup(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_read_safe_rdm_2e_dndn(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_rdm_2e_dndn(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
+}
+
 trexio_exit_code
 trexio_read_rdm_2e_dndn(trexio_t* const file,
                          const int64_t offset_file,
@@ -10985,6 +11069,18 @@ trexio_read_rdm_2e_dndn(trexio_t* const file,
   }
 
   return rc;
+}
+
+trexio_exit_code trexio_read_safe_rdm_2e_updn(trexio_t* const file,
+                                               const int64_t offset_file,
+                                               int64_t* const buffer_size_read,
+                                               int32_t* const index_sparse_read,
+                                               const int64_t size_index_read,
+                                               double* const value_sparse_read,
+                                               const int64_t size_value_read
+                                               )
+{
+  return trexio_read_rdm_2e_updn(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read);
 }
 
 trexio_exit_code
@@ -20160,13 +20256,25 @@ trexio_write_safe_rdm_1e_dn (trexio_t* const file, const double* rdm_1e_dn, cons
   return trexio_write_safe_rdm_1e_dn_64(file, rdm_1e_dn, dim_in);
 }
 
+trexio_exit_code trexio_write_safe_ao_2e_int_eri(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_ao_2e_int_eri(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_ao_2e_int_eri(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;
@@ -20231,13 +20339,25 @@ trexio_write_ao_2e_int_eri(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_write_safe_ao_2e_int_eri_lr(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_ao_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_ao_2e_int_eri_lr(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;
@@ -20302,13 +20422,25 @@ trexio_write_ao_2e_int_eri_lr(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_write_safe_mo_2e_int_eri(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_mo_2e_int_eri(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_mo_2e_int_eri(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;
@@ -20373,13 +20505,25 @@ trexio_write_mo_2e_int_eri(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_write_safe_mo_2e_int_eri_lr(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_mo_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_mo_2e_int_eri_lr(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;
@@ -20444,13 +20588,25 @@ trexio_write_mo_2e_int_eri_lr(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_write_safe_rdm_2e(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_rdm_2e(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_rdm_2e(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;
@@ -20515,13 +20671,25 @@ trexio_write_rdm_2e(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_write_safe_rdm_2e_upup(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_rdm_2e_upup(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_rdm_2e_upup(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;
@@ -20586,13 +20754,25 @@ trexio_write_rdm_2e_upup(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_write_safe_rdm_2e_dndn(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_rdm_2e_dndn(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_rdm_2e_dndn(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;
@@ -20657,13 +20837,25 @@ trexio_write_rdm_2e_dndn(trexio_t* const file,
   return rc;
 }
 
+trexio_exit_code trexio_write_safe_rdm_2e_updn(trexio_t* const file,
+                                                const int64_t offset_file,
+                                                const int64_t buffer_size,
+                                                const int32_t* index_sparse_write,
+                                                const int64_t size_index_write,
+                                                const double* value_sparse_write,
+                                                const int64_t size_value_write
+                                                )
+{
+  return trexio_write_rdm_2e_updn(file, offset_file, buffer_size, index_sparse_write, value_sparse_write);
+}
+
 trexio_exit_code
 trexio_write_rdm_2e_updn(trexio_t* const file,
-                           const int64_t offset_file,
-                           const int64_t buffer_size,
-                           const int32_t* index_sparse,
-                           const double* value_sparse
-                           )
+                          const int64_t offset_file,
+                          const int64_t buffer_size,
+                          const int32_t* index_sparse,
+                          const double* value_sparse
+                          )
 {
   if (file  == NULL) return TREXIO_INVALID_ARG_1;
   if (offset_file < 0L) return TREXIO_INVALID_ARG_2;

@@ -24515,24 +24515,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_ao_2e_int_eri_size(PyObject *SWIGUNUSEDPA
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_ao_2e_int_eri_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_ao_2e_int_eri_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_ao_2e_int_eri_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_ao_2e_int_eri_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24589,6 +24592,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_ao_2e_int_eri(PyObject *SWIGUNUSEDPARM(s
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_ao_2e_int_eri(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_ao_2e_int_eri", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_ao_2e_int_eri" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_ao_2e_int_eri" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_ao_2e_int_eri" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_ao_2e_int_eri(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_ao_2e_int_eri(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_ao_2e_int_eri", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_ao_2e_int_eri" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_ao_2e_int_eri" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_ao_2e_int_eri" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_ao_2e_int_eri(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -24676,24 +24866,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_ao_2e_int_eri_lr_size(PyObject *SWIGUNUSE
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_ao_2e_int_eri_lr_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_ao_2e_int_eri_lr_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_ao_2e_int_eri_lr_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_ao_2e_int_eri_lr_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24750,6 +24943,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_ao_2e_int_eri_lr(PyObject *SWIGUNUSEDPAR
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_ao_2e_int_eri_lr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_ao_2e_int_eri_lr", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_ao_2e_int_eri_lr" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_ao_2e_int_eri_lr" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_ao_2e_int_eri_lr" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_ao_2e_int_eri_lr(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_ao_2e_int_eri_lr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_ao_2e_int_eri_lr", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_ao_2e_int_eri_lr" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_ao_2e_int_eri_lr" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_ao_2e_int_eri_lr" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_ao_2e_int_eri_lr(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -24837,24 +25217,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_mo_2e_int_eri_size(PyObject *SWIGUNUSEDPA
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_mo_2e_int_eri_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_mo_2e_int_eri_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_mo_2e_int_eri_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_mo_2e_int_eri_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24911,6 +25294,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_mo_2e_int_eri(PyObject *SWIGUNUSEDPARM(s
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_mo_2e_int_eri(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_mo_2e_int_eri", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_mo_2e_int_eri" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_mo_2e_int_eri" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_mo_2e_int_eri" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_mo_2e_int_eri(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_mo_2e_int_eri(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_mo_2e_int_eri", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_mo_2e_int_eri" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_mo_2e_int_eri" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_mo_2e_int_eri" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_mo_2e_int_eri(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -24998,24 +25568,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_mo_2e_int_eri_lr_size(PyObject *SWIGUNUSE
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_mo_2e_int_eri_lr_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_mo_2e_int_eri_lr_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_mo_2e_int_eri_lr_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_mo_2e_int_eri_lr_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25072,6 +25645,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_mo_2e_int_eri_lr(PyObject *SWIGUNUSEDPAR
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_mo_2e_int_eri_lr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_mo_2e_int_eri_lr", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_mo_2e_int_eri_lr" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_mo_2e_int_eri_lr" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_mo_2e_int_eri_lr" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_mo_2e_int_eri_lr(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_mo_2e_int_eri_lr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_mo_2e_int_eri_lr", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_mo_2e_int_eri_lr" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_mo_2e_int_eri_lr" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_mo_2e_int_eri_lr" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_mo_2e_int_eri_lr(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -25159,24 +25919,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_rdm_2e_size(PyObject *SWIGUNUSEDPARM(self
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_rdm_2e_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_rdm_2e_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_rdm_2e_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_rdm_2e_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25233,6 +25996,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_rdm_2e(PyObject *SWIGUNUSEDPARM(self), P
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_rdm_2e(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_rdm_2e", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_rdm_2e" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_rdm_2e" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_rdm_2e" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_rdm_2e(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_rdm_2e(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_rdm_2e", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_rdm_2e" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_rdm_2e" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_rdm_2e" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_rdm_2e(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -25320,24 +26270,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_rdm_2e_upup_size(PyObject *SWIGUNUSEDPARM
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_rdm_2e_upup_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_rdm_2e_upup_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_rdm_2e_upup_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_rdm_2e_upup_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25394,6 +26347,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_rdm_2e_upup(PyObject *SWIGUNUSEDPARM(sel
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_rdm_2e_upup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_rdm_2e_upup", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_rdm_2e_upup" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_rdm_2e_upup" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_rdm_2e_upup" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_rdm_2e_upup(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_rdm_2e_upup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_rdm_2e_upup", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_rdm_2e_upup" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_rdm_2e_upup" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_rdm_2e_upup" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_rdm_2e_upup(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -25481,24 +26621,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_rdm_2e_dndn_size(PyObject *SWIGUNUSEDPARM
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_rdm_2e_dndn_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_rdm_2e_dndn_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_rdm_2e_dndn_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_rdm_2e_dndn_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25555,6 +26698,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_rdm_2e_dndn(PyObject *SWIGUNUSEDPARM(sel
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_rdm_2e_dndn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_rdm_2e_dndn", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_rdm_2e_dndn" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_rdm_2e_dndn" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_rdm_2e_dndn" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_rdm_2e_dndn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_rdm_2e_dndn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_rdm_2e_dndn", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_rdm_2e_dndn" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_rdm_2e_dndn" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_rdm_2e_dndn" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_rdm_2e_dndn(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -25642,24 +26972,27 @@ SWIGINTERN PyObject *_wrap_trexio_read_rdm_2e_updn_size(PyObject *SWIGUNUSEDPARM
   int64_t *arg2 = (int64_t *) (int64_t *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
+  int64_t temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
   trexio_exit_code result;
   
-  if (!SWIG_Python_UnpackTuple(args, "trexio_read_rdm_2e_updn_size", 2, 2, swig_obj)) SWIG_fail;
+  arg2 = &temp2;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_rdm_2e_updn_size" "', argument " "1"" of type '" "trexio_t *const""'"); 
   }
   arg1 = (trexio_t *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "trexio_read_rdm_2e_updn_size" "', argument " "2"" of type '" "int64_t *const""'"); 
-  }
-  arg2 = (int64_t *)(argp2);
   result = (trexio_exit_code)trexio_read_rdm_2e_updn_size(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25716,6 +27049,193 @@ SWIGINTERN PyObject *_wrap_trexio_write_rdm_2e_updn(PyObject *SWIGUNUSEDPARM(sel
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_read_safe_rdm_2e_updn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t *arg3 = (int64_t *) (int64_t *)0 ;
+  int32_t *arg4 = (int32_t *) (int32_t *)0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) (double *)0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  int64_t temp3 ;
+  int res3 = 0 ;
+  PyObject *array4 = NULL ;
+  PyObject *array6 = NULL ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_read_safe_rdm_2e_updn", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_read_safe_rdm_2e_updn" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_read_safe_rdm_2e_updn" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  if (!(SWIG_IsOK((res3 = SWIG_ConvertPtr(swig_obj[2],SWIG_as_voidptrptr(&arg3),SWIGTYPE_p_long,0))))) {
+    int val; 
+    int ecode = SWIG_AsVal_int(swig_obj[2], &val);
+    if (!SWIG_IsOK(ecode)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode), "in method '" "trexio_read_safe_rdm_2e_updn" "', argument " "3"" of type '" "int64_t""'");
+    }
+    temp3 = (int64_t)(val);
+    arg3 = &temp3;
+    res3 = SWIG_AddTmpMask(ecode);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[3]))
+    {
+      const char* typestring = pytype_string(swig_obj[3]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg5 = (int64_t) PyInt_AsLong(swig_obj[3]);
+    dims[0] = (npy_intp) arg5;
+    array4 = PyArray_SimpleNew(1, dims, NPY_INT32);
+    if (!array4) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+  }
+  {
+    npy_intp dims[1];
+    if (!PyInt_Check(swig_obj[4]))
+    {
+      const char* typestring = pytype_string(swig_obj[4]);
+      PyErr_Format(PyExc_TypeError,
+        "Int dimension expected.  '%s' given.",
+        typestring);
+      SWIG_fail;
+    }
+    arg7 = (int64_t) PyInt_AsLong(swig_obj[4]);
+    dims[0] = (npy_intp) arg7;
+    array6 = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!array6) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+  }
+  result = (trexio_exit_code)trexio_read_safe_rdm_2e_updn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_int((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array4);
+  }
+  {
+    resultobj = SWIG_Python_AppendOutput(resultobj,(PyObject*)array6);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_trexio_write_safe_rdm_2e_updn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  trexio_t *arg1 = (trexio_t *) (trexio_t *)0 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  int32_t *arg4 = (int32_t *) 0 ;
+  int64_t arg5 ;
+  double *arg6 = (double *) 0 ;
+  int64_t arg7 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyArrayObject *array4 = NULL ;
+  int is_new_object4 = 0 ;
+  PyArrayObject *array6 = NULL ;
+  int is_new_object6 = 0 ;
+  PyObject *swig_obj[5] ;
+  trexio_exit_code result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "trexio_write_safe_rdm_2e_updn", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_trexio_s, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "trexio_write_safe_rdm_2e_updn" "', argument " "1"" of type '" "trexio_t *const""'"); 
+  }
+  arg1 = (trexio_t *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trexio_write_safe_rdm_2e_updn" "', argument " "2"" of type '" "int64_t""'");
+  } 
+  arg2 = (int64_t)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trexio_write_safe_rdm_2e_updn" "', argument " "3"" of type '" "int64_t""'");
+  } 
+  arg3 = (int64_t)(val3);
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array4 = obj_to_array_contiguous_allow_conversion(swig_obj[3],
+      NPY_INT32,
+      &is_new_object4);
+    if (!array4 || !require_dimensions(array4, 1) ||
+      !require_size(array4, size, 1)) SWIG_fail;
+    arg4 = (int32_t*) array_data(array4);
+    arg5 = (int64_t) array_size(array4,0);
+  }
+  {
+    npy_intp size[1] = {
+      -1 
+    };
+    array6 = obj_to_array_contiguous_allow_conversion(swig_obj[4],
+      NPY_DOUBLE,
+      &is_new_object6);
+    if (!array6 || !require_dimensions(array6, 1) ||
+      !require_size(array6, size, 1)) SWIG_fail;
+    arg6 = (double*) array_data(array6);
+    arg7 = (int64_t) array_size(array6,0);
+  }
+  result = (trexio_exit_code)trexio_write_safe_rdm_2e_updn(arg1,arg2,arg3,(int const *)arg4,arg5,(double const *)arg6,arg7);
+  resultobj = SWIG_From_int((int)(result));
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
+  return resultobj;
+fail:
+  {
+    if (is_new_object4 && array4)
+    {
+      Py_DECREF(array4); 
+    }
+  }
+  {
+    if (is_new_object6 && array6)
+    {
+      Py_DECREF(array6); 
+    }
+  }
   return NULL;
 }
 
@@ -27282,36 +28802,52 @@ static PyMethodDef SwigMethods[] = {
 	 { "trexio_write_safe_rdm_1e_dn_64", _wrap_trexio_write_safe_rdm_1e_dn_64, METH_VARARGS, NULL},
 	 { "trexio_has_ao_2e_int_eri", _wrap_trexio_has_ao_2e_int_eri, METH_O, NULL},
 	 { "trexio_read_ao_2e_int_eri", _wrap_trexio_read_ao_2e_int_eri, METH_VARARGS, NULL},
-	 { "trexio_read_ao_2e_int_eri_size", _wrap_trexio_read_ao_2e_int_eri_size, METH_VARARGS, NULL},
+	 { "trexio_read_ao_2e_int_eri_size", _wrap_trexio_read_ao_2e_int_eri_size, METH_O, NULL},
 	 { "trexio_write_ao_2e_int_eri", _wrap_trexio_write_ao_2e_int_eri, METH_VARARGS, NULL},
+	 { "trexio_read_safe_ao_2e_int_eri", _wrap_trexio_read_safe_ao_2e_int_eri, METH_VARARGS, NULL},
+	 { "trexio_write_safe_ao_2e_int_eri", _wrap_trexio_write_safe_ao_2e_int_eri, METH_VARARGS, NULL},
 	 { "trexio_has_ao_2e_int_eri_lr", _wrap_trexio_has_ao_2e_int_eri_lr, METH_O, NULL},
 	 { "trexio_read_ao_2e_int_eri_lr", _wrap_trexio_read_ao_2e_int_eri_lr, METH_VARARGS, NULL},
-	 { "trexio_read_ao_2e_int_eri_lr_size", _wrap_trexio_read_ao_2e_int_eri_lr_size, METH_VARARGS, NULL},
+	 { "trexio_read_ao_2e_int_eri_lr_size", _wrap_trexio_read_ao_2e_int_eri_lr_size, METH_O, NULL},
 	 { "trexio_write_ao_2e_int_eri_lr", _wrap_trexio_write_ao_2e_int_eri_lr, METH_VARARGS, NULL},
+	 { "trexio_read_safe_ao_2e_int_eri_lr", _wrap_trexio_read_safe_ao_2e_int_eri_lr, METH_VARARGS, NULL},
+	 { "trexio_write_safe_ao_2e_int_eri_lr", _wrap_trexio_write_safe_ao_2e_int_eri_lr, METH_VARARGS, NULL},
 	 { "trexio_has_mo_2e_int_eri", _wrap_trexio_has_mo_2e_int_eri, METH_O, NULL},
 	 { "trexio_read_mo_2e_int_eri", _wrap_trexio_read_mo_2e_int_eri, METH_VARARGS, NULL},
-	 { "trexio_read_mo_2e_int_eri_size", _wrap_trexio_read_mo_2e_int_eri_size, METH_VARARGS, NULL},
+	 { "trexio_read_mo_2e_int_eri_size", _wrap_trexio_read_mo_2e_int_eri_size, METH_O, NULL},
 	 { "trexio_write_mo_2e_int_eri", _wrap_trexio_write_mo_2e_int_eri, METH_VARARGS, NULL},
+	 { "trexio_read_safe_mo_2e_int_eri", _wrap_trexio_read_safe_mo_2e_int_eri, METH_VARARGS, NULL},
+	 { "trexio_write_safe_mo_2e_int_eri", _wrap_trexio_write_safe_mo_2e_int_eri, METH_VARARGS, NULL},
 	 { "trexio_has_mo_2e_int_eri_lr", _wrap_trexio_has_mo_2e_int_eri_lr, METH_O, NULL},
 	 { "trexio_read_mo_2e_int_eri_lr", _wrap_trexio_read_mo_2e_int_eri_lr, METH_VARARGS, NULL},
-	 { "trexio_read_mo_2e_int_eri_lr_size", _wrap_trexio_read_mo_2e_int_eri_lr_size, METH_VARARGS, NULL},
+	 { "trexio_read_mo_2e_int_eri_lr_size", _wrap_trexio_read_mo_2e_int_eri_lr_size, METH_O, NULL},
 	 { "trexio_write_mo_2e_int_eri_lr", _wrap_trexio_write_mo_2e_int_eri_lr, METH_VARARGS, NULL},
+	 { "trexio_read_safe_mo_2e_int_eri_lr", _wrap_trexio_read_safe_mo_2e_int_eri_lr, METH_VARARGS, NULL},
+	 { "trexio_write_safe_mo_2e_int_eri_lr", _wrap_trexio_write_safe_mo_2e_int_eri_lr, METH_VARARGS, NULL},
 	 { "trexio_has_rdm_2e", _wrap_trexio_has_rdm_2e, METH_O, NULL},
 	 { "trexio_read_rdm_2e", _wrap_trexio_read_rdm_2e, METH_VARARGS, NULL},
-	 { "trexio_read_rdm_2e_size", _wrap_trexio_read_rdm_2e_size, METH_VARARGS, NULL},
+	 { "trexio_read_rdm_2e_size", _wrap_trexio_read_rdm_2e_size, METH_O, NULL},
 	 { "trexio_write_rdm_2e", _wrap_trexio_write_rdm_2e, METH_VARARGS, NULL},
+	 { "trexio_read_safe_rdm_2e", _wrap_trexio_read_safe_rdm_2e, METH_VARARGS, NULL},
+	 { "trexio_write_safe_rdm_2e", _wrap_trexio_write_safe_rdm_2e, METH_VARARGS, NULL},
 	 { "trexio_has_rdm_2e_upup", _wrap_trexio_has_rdm_2e_upup, METH_O, NULL},
 	 { "trexio_read_rdm_2e_upup", _wrap_trexio_read_rdm_2e_upup, METH_VARARGS, NULL},
-	 { "trexio_read_rdm_2e_upup_size", _wrap_trexio_read_rdm_2e_upup_size, METH_VARARGS, NULL},
+	 { "trexio_read_rdm_2e_upup_size", _wrap_trexio_read_rdm_2e_upup_size, METH_O, NULL},
 	 { "trexio_write_rdm_2e_upup", _wrap_trexio_write_rdm_2e_upup, METH_VARARGS, NULL},
+	 { "trexio_read_safe_rdm_2e_upup", _wrap_trexio_read_safe_rdm_2e_upup, METH_VARARGS, NULL},
+	 { "trexio_write_safe_rdm_2e_upup", _wrap_trexio_write_safe_rdm_2e_upup, METH_VARARGS, NULL},
 	 { "trexio_has_rdm_2e_dndn", _wrap_trexio_has_rdm_2e_dndn, METH_O, NULL},
 	 { "trexio_read_rdm_2e_dndn", _wrap_trexio_read_rdm_2e_dndn, METH_VARARGS, NULL},
-	 { "trexio_read_rdm_2e_dndn_size", _wrap_trexio_read_rdm_2e_dndn_size, METH_VARARGS, NULL},
+	 { "trexio_read_rdm_2e_dndn_size", _wrap_trexio_read_rdm_2e_dndn_size, METH_O, NULL},
 	 { "trexio_write_rdm_2e_dndn", _wrap_trexio_write_rdm_2e_dndn, METH_VARARGS, NULL},
+	 { "trexio_read_safe_rdm_2e_dndn", _wrap_trexio_read_safe_rdm_2e_dndn, METH_VARARGS, NULL},
+	 { "trexio_write_safe_rdm_2e_dndn", _wrap_trexio_write_safe_rdm_2e_dndn, METH_VARARGS, NULL},
 	 { "trexio_has_rdm_2e_updn", _wrap_trexio_has_rdm_2e_updn, METH_O, NULL},
 	 { "trexio_read_rdm_2e_updn", _wrap_trexio_read_rdm_2e_updn, METH_VARARGS, NULL},
-	 { "trexio_read_rdm_2e_updn_size", _wrap_trexio_read_rdm_2e_updn_size, METH_VARARGS, NULL},
+	 { "trexio_read_rdm_2e_updn_size", _wrap_trexio_read_rdm_2e_updn_size, METH_O, NULL},
 	 { "trexio_write_rdm_2e_updn", _wrap_trexio_write_rdm_2e_updn, METH_VARARGS, NULL},
+	 { "trexio_read_safe_rdm_2e_updn", _wrap_trexio_read_safe_rdm_2e_updn, METH_VARARGS, NULL},
+	 { "trexio_write_safe_rdm_2e_updn", _wrap_trexio_write_safe_rdm_2e_updn, METH_VARARGS, NULL},
 	 { "trexio_has_metadata_code", _wrap_trexio_has_metadata_code, METH_O, NULL},
 	 { "trexio_read_metadata_code_low", _wrap_trexio_read_metadata_code_low, METH_VARARGS, NULL},
 	 { "trexio_write_metadata_code_low", _wrap_trexio_write_metadata_code_low, METH_VARARGS, NULL},

@@ -8075,7 +8075,7 @@ trexio_hdf5_open_read_dset_sparse (const hid_t group_id,
     H5Dclose(dset_id);
     return TREXIO_FAILURE;
   }
-  
+
   hsize_t max_offset = offset_file[0] + size_read[0];
 
   int is_EOF = 0;

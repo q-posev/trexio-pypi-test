@@ -681,41 +681,57 @@ trexio_exit_code trexio_has_ao_2e_int_eri(trexio_t* const file);
 trexio_exit_code trexio_read_ao_2e_int_eri(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_ao_2e_int_eri_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_ao_2e_int_eri(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_ao_2e_int_eri(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_ao_2e_int_eri(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_ao_2e_int_eri_lr(trexio_t* const file);
 trexio_exit_code trexio_read_ao_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_ao_2e_int_eri_lr_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_ao_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_ao_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_ao_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_mo_2e_int_eri(trexio_t* const file);
 trexio_exit_code trexio_read_mo_2e_int_eri(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_mo_2e_int_eri_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_mo_2e_int_eri(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_mo_2e_int_eri(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_mo_2e_int_eri(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_mo_2e_int_eri_lr(trexio_t* const file);
 trexio_exit_code trexio_read_mo_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_mo_2e_int_eri_lr_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_mo_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_mo_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_mo_2e_int_eri_lr(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_rdm_2e(trexio_t* const file);
 trexio_exit_code trexio_read_rdm_2e(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_rdm_2e_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_rdm_2e(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_rdm_2e(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_rdm_2e(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_rdm_2e_upup(trexio_t* const file);
 trexio_exit_code trexio_read_rdm_2e_upup(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_rdm_2e_upup_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_rdm_2e_upup(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_rdm_2e_upup(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_rdm_2e_upup(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_rdm_2e_dndn(trexio_t* const file);
 trexio_exit_code trexio_read_rdm_2e_dndn(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_rdm_2e_dndn_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_rdm_2e_dndn(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_rdm_2e_dndn(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_rdm_2e_dndn(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_rdm_2e_updn(trexio_t* const file);
 trexio_exit_code trexio_read_rdm_2e_updn(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size, int32_t* const index_sparse, double* const value_sparse);
 trexio_exit_code trexio_read_rdm_2e_updn_size(trexio_t* const file, int64_t* const size_max);
 trexio_exit_code trexio_write_rdm_2e_updn(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse, const double* value_sparse);
+trexio_exit_code trexio_read_safe_rdm_2e_updn(trexio_t* const file, const int64_t offset_file, int64_t* const buffer_size_read, int32_t* const index_sparse_read, const int64_t size_index_read, double* const value_sparse_read, const int64_t size_value_read);
+trexio_exit_code trexio_write_safe_rdm_2e_updn(trexio_t* const file, const int64_t offset_file, const int64_t buffer_size, const int32_t* index_sparse_write, const int64_t size_index_write, const double* value_sparse_write, const int64_t size_value_write);
 
 trexio_exit_code trexio_has_metadata_code(trexio_t* const file);
 trexio_exit_code trexio_read_metadata_code_low(trexio_t* const file, char* dset_out, const int32_t max_str_len);
