@@ -1771,11 +1771,17 @@ def trexio_has_ao_2e_int_eri(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_ao_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_ao_2e_int_eri(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_ao_2e_int_eri_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_ao_2e_int_eri_size(file, size_max)
+def trexio_read_ao_2e_int_eri_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_ao_2e_int_eri_size(file)
 
 def trexio_write_ao_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_ao_2e_int_eri(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_ao_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_ao_2e_int_eri(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_ao_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_ao_2e_int_eri(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_ao_2e_int_eri_lr(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_ao_2e_int_eri_lr(file)
@@ -1783,11 +1789,17 @@ def trexio_has_ao_2e_int_eri_lr(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_ao_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_ao_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_ao_2e_int_eri_lr_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_ao_2e_int_eri_lr_size(file, size_max)
+def trexio_read_ao_2e_int_eri_lr_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_ao_2e_int_eri_lr_size(file)
 
 def trexio_write_ao_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_ao_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_ao_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_ao_2e_int_eri_lr(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_ao_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_ao_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_mo_2e_int_eri(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_mo_2e_int_eri(file)
@@ -1795,11 +1807,17 @@ def trexio_has_mo_2e_int_eri(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_mo_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_mo_2e_int_eri(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_mo_2e_int_eri_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_mo_2e_int_eri_size(file, size_max)
+def trexio_read_mo_2e_int_eri_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_mo_2e_int_eri_size(file)
 
 def trexio_write_mo_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_mo_2e_int_eri(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_mo_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_mo_2e_int_eri(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_mo_2e_int_eri(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_mo_2e_int_eri(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_mo_2e_int_eri_lr(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_mo_2e_int_eri_lr(file)
@@ -1807,11 +1825,17 @@ def trexio_has_mo_2e_int_eri_lr(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_mo_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_mo_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_mo_2e_int_eri_lr_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_mo_2e_int_eri_lr_size(file, size_max)
+def trexio_read_mo_2e_int_eri_lr_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_mo_2e_int_eri_lr_size(file)
 
 def trexio_write_mo_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_mo_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_mo_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_mo_2e_int_eri_lr(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_mo_2e_int_eri_lr(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_mo_2e_int_eri_lr(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_rdm_2e(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_rdm_2e(file)
@@ -1819,11 +1843,17 @@ def trexio_has_rdm_2e(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_rdm_2e(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_rdm_2e(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_rdm_2e_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_rdm_2e_size(file, size_max)
+def trexio_read_rdm_2e_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_rdm_2e_size(file)
 
 def trexio_write_rdm_2e(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_rdm_2e(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_rdm_2e(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_rdm_2e(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_rdm_2e(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_rdm_2e(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_rdm_2e_upup(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_rdm_2e_upup(file)
@@ -1831,11 +1861,17 @@ def trexio_has_rdm_2e_upup(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_rdm_2e_upup(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_rdm_2e_upup(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_rdm_2e_upup_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_rdm_2e_upup_size(file, size_max)
+def trexio_read_rdm_2e_upup_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_rdm_2e_upup_size(file)
 
 def trexio_write_rdm_2e_upup(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_rdm_2e_upup(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_rdm_2e_upup(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_rdm_2e_upup(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_rdm_2e_upup(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_rdm_2e_upup(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_rdm_2e_dndn(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_rdm_2e_dndn(file)
@@ -1843,11 +1879,17 @@ def trexio_has_rdm_2e_dndn(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_rdm_2e_dndn(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_rdm_2e_dndn(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_rdm_2e_dndn_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_rdm_2e_dndn_size(file, size_max)
+def trexio_read_rdm_2e_dndn_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_rdm_2e_dndn_size(file)
 
 def trexio_write_rdm_2e_dndn(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_rdm_2e_dndn(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_rdm_2e_dndn(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_rdm_2e_dndn(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_rdm_2e_dndn(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_rdm_2e_dndn(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_rdm_2e_updn(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_rdm_2e_updn(file)
@@ -1855,11 +1897,17 @@ def trexio_has_rdm_2e_updn(file: "trexio_s") -> "trexio_exit_code":
 def trexio_read_rdm_2e_updn(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t *const", index_sparse: "int32_t *const", value_sparse: "double *const") -> "trexio_exit_code":
     return _pytrexio.trexio_read_rdm_2e_updn(file, offset_file, buffer_size, index_sparse, value_sparse)
 
-def trexio_read_rdm_2e_updn_size(file: "trexio_s", size_max: "int64_t *const") -> "trexio_exit_code":
-    return _pytrexio.trexio_read_rdm_2e_updn_size(file, size_max)
+def trexio_read_rdm_2e_updn_size(file: "trexio_s") -> "int64_t *const":
+    return _pytrexio.trexio_read_rdm_2e_updn_size(file)
 
 def trexio_write_rdm_2e_updn(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse: "int32_t const *", value_sparse: "double const *") -> "trexio_exit_code":
     return _pytrexio.trexio_write_rdm_2e_updn(file, offset_file, buffer_size, index_sparse, value_sparse)
+
+def trexio_read_safe_rdm_2e_updn(file: "trexio_s", offset_file: "int64_t const", buffer_size_read: "int64_t *const", index_sparse_read: "int32_t *const", value_sparse_read: "double *const") -> "int64_t *const, int64_t const, int64_t const":
+    return _pytrexio.trexio_read_safe_rdm_2e_updn(file, offset_file, buffer_size_read, index_sparse_read, value_sparse_read)
+
+def trexio_write_safe_rdm_2e_updn(file: "trexio_s", offset_file: "int64_t const", buffer_size: "int64_t const", index_sparse_write: "int32_t const *", value_sparse_write: "double const *") -> "trexio_exit_code":
+    return _pytrexio.trexio_write_safe_rdm_2e_updn(file, offset_file, buffer_size, index_sparse_write, value_sparse_write)
 
 def trexio_has_metadata_code(file: "trexio_s") -> "trexio_exit_code":
     return _pytrexio.trexio_has_metadata_code(file)
