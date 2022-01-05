@@ -6,6 +6,7 @@ set -e
 export H5_LDFLAGS=-L/usr/local/lib
 export H5_CFLAGS=-I/usr/local/include
 
+readonly ROOTDIR=${PWD}
 
 # build wheel directly from developer-provided .tar.gz of TREXIO (generated with `python setup.py sdist`)
 # note: trexio-VERSION.tar.gz has to be in the root directory of the host machine and provided as an argument to this script
@@ -93,6 +94,8 @@ function build_wheel_for_py()
    # remove the virtual environment
    rm -rf -- trexio-manylinux-py${PYVERSION}
 
+   # move the wheelhouse directory to the ROOTDIR
+   mv wheelhouse/ ${ROOTDIR}
 }
 
 
