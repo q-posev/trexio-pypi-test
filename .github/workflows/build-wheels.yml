@@ -52,11 +52,16 @@ jobs:
         run: |
           python setup.py sdist
           mv ./dist/trexio-*.tar.gz .
-      
+      #- name: Login to GitHub Container Registry
+      #  uses: docker/login-action@v1 
+      #  with:
+      #    registry: ghcr.io
+      #    username: ${{ github.repository_owner }}
+      #    password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build wheels
         run: |
           docker pull ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64:latest
-          docker run --rm --env PLAT=manylinux2010_x86_64 --volume `pwd`:/tmp --workdir /tmp hdf5_1_12_on_2010_x86_64 /bin/bash build_manylinux_wheels.sh trexio-*.tar.gz
+          docker run --rm --env PLAT=manylinux2010_x86_64 --volume `pwd`:/tmp --workdir /tmp ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64 /bin/bash build_manylinux_wheels.sh trexio-*.tar.gz
 
       - uses: actions/upload-artifact@v2
         with:
