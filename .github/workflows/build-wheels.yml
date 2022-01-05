@@ -58,7 +58,7 @@ jobs:
           mv ./dist/trexio-*.tar.gz .
       
       - name: Build wheels
-        uses: |
+        run: |
           docker pull ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64:latest
           docker run --rm -it -e PLAT=manylinux2010_x86_64 -v `pwd`:/tmp hdf5_1_12_on_2014_x86_64 /bin/bash
           cd tmp && ./build_manylinux_wheels.sh trexio-1.1.0.tar.gz
