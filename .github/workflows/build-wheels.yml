@@ -39,7 +39,6 @@ jobs:
     if: >-
       contains(needs.get_commit_message.outputs.message, '[wheel build]') ||
       github.event_name == 'push' 
-      # remove the line above for production !
     runs-on: ubuntu-latest
 
     steps:
