@@ -50,7 +50,7 @@ jobs:
         with:
           python-version: '3.8'
       - name: Install build dependencies
-        run: python -m pip install -U setuptools numpy
+        run: python -m pip install -U setuptools numpy pkgconfig
       - name: Build distribution tarball
         run: |
           source tools/set_NUMPY_INCLUDEDIR.sh
