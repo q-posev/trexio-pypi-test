@@ -87,8 +87,11 @@ jobs:
         with:
           name: pytrexio
           path: dist
-      - name: Display structure of downloaded artifacts
-        run: ls -R
+      - name: Display and rearrange the downloaded artifacts
+        run: |
+          ls -R
+          mv wheelhouse/*.whl .
+          rm -rf -- wheelhouse/
         working-directory: dist
       - name: Publish distribution 📦 to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
