@@ -105,15 +105,13 @@ jobs:
           python -m pip install -U setuptools build delocate numpy
           
       # this step is needed to produce wheels with the correct platform tag
-      - name: Set MACOSX_DEPLOYMENT_TARGET for macos-11
+      - name: Set MACOSX_DEPLOYMENT_TARGET environment variable
         if: ${{ matrix.os == 'macos-11' }}
-        env: 
-          MACOSX_DEPLOYMENT_TARGET: '11.0'
-        run: echo "Set MACOSX_DEPLOYMENT_TARGET"
+        # it is not possible to set ENV variables conditionally, so we improvise below
+        run: echo "MACOSX_DEPLOYMENT_TARGET=11.0" >> $GITHUB_ENV
           
       - name: Build wheel for a given version of CPython
         run: |
-          echo ${MACOSX_DEPLOYMENT_TARGET}
           source tools/set_NUMPY_INCLUDEDIR.sh
           python -m build --wheel --outdir ./
           delocate-wheel trexio-*.whl
