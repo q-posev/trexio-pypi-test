@@ -76,11 +76,10 @@ jobs:
     if: >-
       contains(needs.get_commit_message.outputs.message, '[wheel build]') ||
       github.event_name == 'workflow-dispatch'
-    runs-on: macos-11
-    #runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        #os: [macos-11, macos-10.15]
+        os: [macos-11, macos-10.15]
         python-version: ['3.9']
         #python-version: ['3.7', '3.8', '3.9', '3.10']
         #exclude:
@@ -89,7 +88,6 @@ jobs:
     env:
         H5_LDFLAGS: '-L/usr/local/Cellar/hdf5/1.12.1/lib'
         H5_CFLAGS: '-I/usr/local/Cellar/hdf5/1.12.1/include'
-        MACOSX_DEPLOYMENT_TARGET: '11.0'
     steps:
       - uses: actions/checkout@v2
       
@@ -105,6 +103,12 @@ jobs:
         run: |
           brew install hdf5@1.12
           python -m pip install -U setuptools build delocate numpy
+          
+      # this step is needed to produce wheels with the correct platform tag
+      - name: Set MACOSX_DEPLOYMENT_TARGET for macos-11
+        if: ${{ matrix.os == 'macos-11' }}
+        env: 
+          MACOSX_DEPLOYMENT_TARGET: '11.0'
           
       - name: Build wheel for a given version of CPython
         run: |
