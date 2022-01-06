@@ -109,6 +109,7 @@ jobs:
         if: ${{ matrix.os == 'macos-11' }}
         env: 
           MACOSX_DEPLOYMENT_TARGET: '11.0'
+        run: echo "Set MACOSX_DEPLOYMENT_TARGET"
           
       - name: Build wheel for a given version of CPython
         run: |
