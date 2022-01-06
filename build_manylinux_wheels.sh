@@ -103,7 +103,7 @@ function build_wheel_for_py()
 
 
 # build wheels for all versions of CPython in this container
-for CPYVERSION in 38 39
+for CPYVERSION in 37 38 39 310
 do
   build_wheel_for_py ${CPYVERSION}
 done
