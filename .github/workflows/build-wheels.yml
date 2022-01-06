@@ -80,7 +80,9 @@ jobs:
     strategy:
       matrix:
         os: [macos-11, macos-10.15]
-        python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: ['3.8']
+        #os: [macos-11, macos-10.15]
+        #python-version: ['3.7', '3.8', '3.9', '3.10']
         #exclude:
         #  - os: macos-10.15
         #    python-version: '3.8'
@@ -98,12 +100,12 @@ jobs:
       - name: Install build dependencies
         run: |
           brew install hdf5@1.12
-          export H5_LDFLAGS="-L/usr/local/Cellar/hdf5/1.12.1/lib"
-          export H5_CFLAGS="-I/usr/local/Cellar/hdf5/1.12.1/include"
           python -m pip install -U setuptools build numpy
           
       - name: Build wheel for a given version of CPython
         run: |
+          export H5_LDFLAGS="-L/usr/local/Cellar/hdf5/1.12.1/lib"
+          export H5_CFLAGS="-I/usr/local/Cellar/hdf5/1.12.1/include"
           source tools/set_NUMPY_INCLUDEDIR.sh
           python -m build --wheel --outdir ./
         
