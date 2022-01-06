@@ -113,6 +113,7 @@ jobs:
           
       - name: Build wheel for a given version of CPython
         run: |
+          echo ${MACOSX_DEPLOYMENT_TARGET}
           source tools/set_NUMPY_INCLUDEDIR.sh
           python -m build --wheel --outdir ./
           delocate-wheel trexio-*.whl
