@@ -40,6 +40,9 @@ jobs:
       contains(needs.get_commit_message.outputs.message, '[wheel build]') ||
       github.event_name == 'workflow-dispatch' 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        manylinux_tag: [2010_x86_64, 2014_x86_64, 2_24_x86_64]
 
     steps:
       - name: Checkout the branch
@@ -60,15 +63,20 @@ jobs:
           
       - name: Build manylinux wheels
         run: |
-          docker pull ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64:latest
-          docker run --rm --env PLAT=manylinux2010_x86_64 --volume `pwd`:/tmp --workdir /tmp ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64 /bin/bash build_manylinux_wheels.sh trexio-*.tar.gz
+          docker pull ghcr.io/q-posev/hdf5_1_12_on_${{ matrix.manylinux_tag }}:latest
+          docker run --rm --env PLAT=manylinux${{ matrix.manylinux_tag }} --volume `pwd`:/tmp --workdir /tmp ghcr.io/q-posev/hdf5_1_12_on_${{ matrix.manylinux_tag }} /bin/bash build_manylinux_wheels.sh trexio-*.tar.gz
 
       - uses: actions/upload-artifact@v2
         with:
-          name: pytrexio-manylinux
-          path: |
-            ./trexio-*.tar.gz
-            ./wheelhouse/*.whl
+          name: pytrexio-manylinux-${{ matrix.manylinux_tag }}
+          path: ./wheelhouse/*.whl
+          
+      # only upload the source code tarball once    
+      - uses: actions/upload-artifact@v2
+        with:
+          name: pytrexio-source
+          path: ./trexio-*.tar.gz
+        if: ${{ matrix.manylinux_tag == '2014_x86_64' }}
  
   build_macos_wheels:
     name: Build MacOS wheels for different versions of CPython
@@ -80,8 +88,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-11, macos-10.15]
-        python-version: ['3.9']
-        #python-version: ['3.7', '3.8', '3.9', '3.10']
+        python-version: ['3.7', '3.8', '3.9', '3.10']
         #exclude:
         #  - os: macos-10.15
         #    python-version: '3.8'
@@ -118,8 +125,7 @@ jobs:
         
       - uses: actions/upload-artifact@v2
         with:
-          #name: pytrexio-${{ matrix.os }}-${{ matrix.python-version }}
-          name: pytrexio-macos
+          name: pytrexio-${{ matrix.os }}
           path: ./*.whl
  
   publish_wheels:
@@ -146,19 +152,23 @@ jobs:
      # if name is not specified - all artifacts will be downloaded
      #    name: pytrexio-manylinux
           
+      # the artifacts have to be in dist/ directory so that 
+      # pypa/gh-action-pypi-publish action can discover them
       - name: Display and rearrange the downloaded artifacts
         run: |
           ls -R
-          mv pytrexio-manylinux/wheelhouse/*.whl ./
-          mv pytrexio-macos/*.whl ./
-          rm -rf -- pytrexio-manylinux/ pytrexio-macos/
+          mv pytrexio-manylinux-*/wheelhouse/*.whl ./
+          mv pytrexio-macos-*/*.whl ./
+          mv pytrexio-source/*.tar.gz ./
+          rm -rf -- pytrexio-manylinux/ pytrexio-macos/ pytrexio-source/
+          ls -sh -w 1
         working-directory: dist
         
-      - name: Publish distribution 📦 to Test PyPI
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-          repository_url: https://test.pypi.org/legacy/          
+      #- name: Publish distribution 📦 to Test PyPI
+      #  uses: pypa/gh-action-pypi-publish@master
+      #  with:
+      #    password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      #    repository_url: https://test.pypi.org/legacy/          
           #verbose: true
       
       #- name: Publish distribution 📦 to PyPI
