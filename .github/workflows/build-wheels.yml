@@ -21,7 +21,7 @@ jobs:
     outputs:
       message: ${{ steps.commit_message.outputs.message }}
     steps:
-      - name: Checkout numpy
+      - name: Checkout the repo
         uses: actions/checkout@v2
         # Gets the correct commit message for pull request
         with:
@@ -33,8 +33,8 @@ jobs:
           COMMIT_MSG=$(git log --no-merges -1 --oneline)
           echo "::set-output name=message::$COMMIT_MSG"
           
-  build_wheels:
-    name: Build manylinux_x86_64 wheels for different versions of CPython 
+  build_linux_wheels:
+    name: Build Linux wheels for different versions of CPython on manylinux_x86_64 
     needs: get_commit_message
     if: >-
       contains(needs.get_commit_message.outputs.message, '[wheel build]') ||
@@ -49,27 +49,69 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.9'
+          
       - name: Install build dependencies
-        run: python -m pip install -U setuptools 
+        run: python -m pip install -U setuptools build
+        
       - name: Build distribution tarball
         run: |
-          python setup.py sdist
-          mv ./dist/trexio-*.tar.gz .
-      - name: Build wheels
+          python -m build --sdist --outdir ./
+          
+      - name: Build manylinux wheels
         run: |
           docker pull ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64:latest
           docker run --rm --env PLAT=manylinux2010_x86_64 --volume `pwd`:/tmp --workdir /tmp ghcr.io/q-posev/hdf5_1_12_on_2010_x86_64 /bin/bash build_manylinux_wheels.sh trexio-*.tar.gz
 
       - uses: actions/upload-artifact@v2
         with:
-          name: pytrexio
+          name: pytrexio-manylinux
           path: |
             ./trexio-*.tar.gz
             ./wheelhouse/*.whl
-            
+ 
+  build_macos_wheels:
+    name: Build MacOS wheels for different versions of CPython
+    needs: get_commit_message
+    if: >-
+      contains(needs.get_commit_message.outputs.message, '[wheel build]') ||
+      github.event_name == 'workflow-dispatch' 
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-11, macos-10.15]
+        python-version: ['3.7', '3.8', '3.9', '3.10']
+        #exclude:
+        #  - os: macos-10.15
+        #    python-version: '3.8'
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          
+      - name: Display Python version
+        run: python --version
+          
+      - name: Install build dependencies
+        run: |
+          brew install hdf5
+          python -m pip install -U setuptools build numpy pkgconfig
+          
+      - name: Build wheel for a given version of CPython
+        run: |
+          source tools/set_NUMPY_INCLUDEDIR.sh
+          python -m build --wheel --outdir ./
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: pytrexio-${{ matrix.os }}-${{ matrix.python-version }}
+          path: ./*.whl
+ 
   publish_wheels:
-    name: Publish manylinux_x86_64 wheels on PyPI
-    needs: build_wheels
+    name: Publish all wheels on PyPI
+    needs: [build_linux_wheels, build_macos_wheels]
     runs-on: ubuntu-latest
 
     steps:
@@ -80,25 +122,31 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.9'
+          
       - name: Install build dependencies
         run: python -m pip install -U setuptools twine
+        
       - name: Download the build artifacts
         uses: actions/download-artifact@v2
         with:
-          name: pytrexio
           path: dist
+     # if name is not specified - all artifacts will be downloaded
+     #    name: pytrexio-manylinux
+          
       - name: Display and rearrange the downloaded artifacts
         run: |
           ls -R
           mv wheelhouse/*.whl .
           rm -rf -- wheelhouse/
         working-directory: dist
+        
       - name: Publish distribution 📦 to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository_url: https://test.pypi.org/legacy/          
-          verbose: true
+      #    verbose: true
+      
       #- name: Publish distribution 📦 to PyPI
       #  if: startsWith(github.ref, 'refs/tags')
       #  uses: pypa/gh-action-pypi-publish@master
