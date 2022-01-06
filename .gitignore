@@ -1,4 +1,8 @@
 build/
 dist/
+pytrexio/pytrexio.py
+src/pytrexio.py
+src/pytrexio_wrap.c
+
 *.egg-info/
 __pycache__/
