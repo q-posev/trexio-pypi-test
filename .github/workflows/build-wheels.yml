@@ -51,7 +51,7 @@ jobs:
           python-version: '3.9'
           
       - name: Install build dependencies
-        run: python -m pip install -U setuptools build
+        run: python -m pip install -U setuptools
         
       - name: Build distribution tarball
         run: |
@@ -75,17 +75,20 @@ jobs:
     needs: get_commit_message
     if: >-
       contains(needs.get_commit_message.outputs.message, '[wheel build]') ||
-      github.event_name == 'workflow-dispatch' 
-    runs-on: ${{ matrix.os }}
+      github.event_name == 'workflow-dispatch'
+    runs-on: macos-10.15
+    #runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-11, macos-10.15]
-        python-version: ['3.8']
         #os: [macos-11, macos-10.15]
+        python-version: ['3.9']
         #python-version: ['3.7', '3.8', '3.9', '3.10']
         #exclude:
         #  - os: macos-10.15
         #    python-version: '3.8'
+    env:
+        H5_LDFLAGS: '-L/usr/local/Cellar/hdf5/1.12.1/lib'
+        H5_CFLAGS: '-I/usr/local/Cellar/hdf5/1.12.1/include'    
     steps:
       - uses: actions/checkout@v2
       
@@ -100,18 +103,18 @@ jobs:
       - name: Install build dependencies
         run: |
           brew install hdf5@1.12
-          python -m pip install -U setuptools build numpy
+          python -m pip install -U setuptools build delocate numpy
           
       - name: Build wheel for a given version of CPython
         run: |
-          export H5_LDFLAGS="-L/usr/local/Cellar/hdf5/1.12.1/lib"
-          export H5_CFLAGS="-I/usr/local/Cellar/hdf5/1.12.1/include"
           source tools/set_NUMPY_INCLUDEDIR.sh
           python -m build --wheel --outdir ./
+          delocate-wheel trexio-*.whl
         
       - uses: actions/upload-artifact@v2
         with:
-          name: pytrexio-${{ matrix.os }}-${{ matrix.python-version }}
+          #name: pytrexio-${{ matrix.os }}-${{ matrix.python-version }}
+          name: pytrexio-macos
           path: ./*.whl
  
   publish_wheels:
@@ -141,8 +144,9 @@ jobs:
       - name: Display and rearrange the downloaded artifacts
         run: |
           ls -R
-          mv wheelhouse/*.whl .
-          rm -rf -- wheelhouse/
+          mv python-manylinux/wheelhouse/*.whl ./
+          mv python-macos/*.whl ./
+          rm -rf -- python-manylinux/ python-macos/
         working-directory: dist
         
       - name: Publish distribution 📦 to Test PyPI
