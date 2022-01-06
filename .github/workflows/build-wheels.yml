@@ -33,6 +33,7 @@ jobs:
           COMMIT_MSG=$(git log --no-merges -1 --oneline)
           echo "::set-output name=message::$COMMIT_MSG"
           
+          
   build_linux_wheels:
     name: Build Linux wheels for different versions of CPython on manylinux_x86_64 
     needs: get_commit_message
@@ -56,6 +57,12 @@ jobs:
       - name: Install build dependencies
         run: python -m pip install -U setuptools
         
+      - name: Run SWIG to procude the wrapper code for Python
+        run: |
+          swig -python -py3 -o pytrexio_wrap.c pytrexio.i
+          cp pytrexio.py ../pytrexio/
+        working-directory: src
+        
       - name: Build distribution tarball
         run: |
           python setup.py sdist
@@ -66,17 +73,20 @@ jobs:
           docker pull ghcr.io/q-posev/hdf5_1_12_on_${{ matrix.manylinux_tag }}:latest
           docker run --rm --env PLAT=manylinux${{ matrix.manylinux_tag }} --volume `pwd`:/tmp --workdir /tmp ghcr.io/q-posev/hdf5_1_12_on_${{ matrix.manylinux_tag }} /bin/bash build_manylinux_wheels.sh trexio-*.tar.gz
 
-      - uses: actions/upload-artifact@v2
+      - name: Upload produced wheels as artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: pytrexio-manylinux-${{ matrix.manylinux_tag }}
           path: ./wheelhouse/*.whl
           
-      # only upload the source code tarball once    
-      - uses: actions/upload-artifact@v2
+      # only upload the source code tarball once
+      - name: Upload source code tarball as an artifact (only once)
+        uses: actions/upload-artifact@v2
         with:
           name: pytrexio-source
           path: ./trexio-*.tar.gz
         if: ${{ matrix.manylinux_tag == '2014_x86_64' }}
+ 
  
   build_macos_wheels:
     name: Build MacOS wheels for different versions of CPython
@@ -116,17 +126,25 @@ jobs:
         if: ${{ matrix.os == 'macos-11' }}
         # it is not possible to set ENV variables conditionally, so we improvise below
         run: echo "MACOSX_DEPLOYMENT_TARGET=11.0" >> $GITHUB_ENV
-          
+        
+      - name: Run SWIG to procude the wrapper code for Python
+        run: |
+          swig -python -py3 -o pytrexio_wrap.c pytrexio.i
+          cp pytrexio.py ../pytrexio/
+        working-directory: src
+    
       - name: Build wheel for a given version of CPython
         run: |
           source tools/set_NUMPY_INCLUDEDIR.sh
           python -m build --wheel --outdir ./
           delocate-wheel trexio-*.whl
-        
-      - uses: actions/upload-artifact@v2
+          
+      - name: Upload produced wheels as artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: pytrexio-${{ matrix.os }}
           path: ./*.whl
+ 
  
   publish_wheels:
     name: Publish all wheels on PyPI
@@ -157,9 +175,9 @@ jobs:
       - name: Display and rearrange the downloaded artifacts
         run: |
           ls -R
-          mv pytrexio-manylinux-*/wheelhouse/*.whl ./
-          mv pytrexio-macos-*/*.whl ./
-          mv pytrexio-source/*.tar.gz ./
+          mv pytrexio-manylinux-*/trexio-*.whl ./
+          mv pytrexio-macos-*/trexio-*.whl ./
+          mv pytrexio-source/trexio-*.tar.gz ./
           rm -rf -- pytrexio-manylinux/ pytrexio-macos/ pytrexio-source/
           ls -sh -w 1
         working-directory: dist
